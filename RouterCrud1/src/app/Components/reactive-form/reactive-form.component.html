@@ -1,0 +1,76 @@
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <div><label>Name: </label>
+    <input formControlName="name" placeholder="Your name">
+    <span class="help-block" *ngIf="((name.touched || name.dirty) &&
+    name.errors)">
+            <span *ngIf="name.errors.required">
+              Full Name is required
+            </span>
+            <span *ngIf="name.errors.minlength">
+              Full Name must be greater than 2 characters and less than 10 characters
+            </span>
+            <span *ngIf="name.errors.pattern">
+              Only Character are allowed with max 10.
+            </span>
+            <span *ngIf="name.errors.NameInvalid">
+              Please select other name than sam.
+            </span>
+          </span>
+</div>
+
+<div><label>Email: </label>
+    <input formControlName="email" placeholder="Your email">
+    <span class="help-block" *ngIf="((email.touched ||
+    email.dirty) && email.errors)">
+      <span *ngIf="email.errors.required">
+        Email is required
+      </span>
+      <span *ngIf="email.errors.email">
+        Valid Email is required
+      </span>
+      <span *ngIf="email.errors.emailDomain">
+        Email domain cannot be gmail, please give other email id
+      </span>
+    </span>
+   </div>
+
+
+   <div>Address</div>
+   <div formGroupName="address"><label>address1: </label> <!--Make sure you have used formgroup name-->
+    <input type="text" formControlName="address1" placeholder="Your address">
+    <span class="help-block" *ngIf="(address1.touched || address1.dirty) &&
+    address1.invalid">
+            <span *ngIf="address1.errors.required">
+              address1 is required
+            </span>
+            
+          </span>
+  
+   </div>
+
+   <div formGroupName="address"><label>State: </label> <!--Make sure you have used formgroup name-->
+    <input type="text" formControlName="state" placeholder="Your state">
+  
+   </div>
+   
+   <div formGroupName="address"><label>Zip: </label> <!--Make sure you have used formgroup name-->
+    <input type="text" formControlName="zip" placeholder="Your state">
+  
+   </div>
+
+   
+   <div formArrayName="alteremail" *ngFor="let email of alteremail.controls; let i= index">
+     <label>Alter Email {{i}}:</label>
+     <input type="text" [formControlName]="i">
+   </div>
+
+    <button type="submit" [disabled]="myForm.invalid">
+      Send
+    </button>
+
+    <button type="button" (click)="AddAlterEmail()">AddEmail</button>
+  </form>
+  
+  
+  

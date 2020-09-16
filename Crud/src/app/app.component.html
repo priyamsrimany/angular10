@@ -1,0 +1,48 @@
+Subhamoy
+
+<div>
+  <ul *ngFor ="let item of CommentsArr">
+    <li>{{item.postId}}</li>
+    <li>{{item.id}}</li>
+    <li>{{item.name}}</li>
+    <li>{{item.email}}</li>
+    <li>{{item.body}}</li>
+  </ul>
+</div>
+<div *ngIf="errorMsg">
+ <ul>
+    <li>{{errorMsg}}</li>
+  </ul>
+</div>
+
+
+<div> Get posts by param 
+  <ul *ngFor ="let item of PostArr">
+    <li>{{item.postId}}</li>
+    <li>{{item.id}}</li>
+    <li>{{item.title}}</li>
+    <li>{{item.body}}</li>
+  </ul>
+</div>
+<div *ngIf="errorMsg">
+ <ul>
+    <li>{{errorMsg}}</li>
+  </ul>
+</div>
+
+
+<div>Item added
+
+  <ul>
+    <li>{{AddedArr.userId}}</li>
+    <li>{{AddedArr.body}}</li>
+    
+  </ul>
+</div>
+<div *ngIf="errorMsg">
+ <ul>
+    <li>{{errorMsg}}</li>
+  </ul>
+</div>
+
+

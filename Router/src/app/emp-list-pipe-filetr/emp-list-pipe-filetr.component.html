@@ -1,0 +1,6 @@
+<p>emp-list-pipe-filetr works!</p>
+<div>EmpList
+    <ul *ngFor="let emp of empArr">
+        <li>{{emp.EmpName | usertitle: emp.Gender}}</li>
+    </ul>
+</div>

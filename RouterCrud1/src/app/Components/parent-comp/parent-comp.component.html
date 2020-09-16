@@ -1,0 +1,11 @@
+<p>parent-comp works! {{itemArr.length}}</p>
+<div>Enter test item in array and see the filer</div>
+<ul *ngFor="let item of filterItem">
+    <li>{{item.Id}}</li>
+    <li>{{item.Name}}</li>
+    <li>{{item.Address}}</li>
+</ul>
+
+<app-child-comp [child]= "itemArr" (childOp)= "receivedChildMessage($event)"></app-child-comp>
+
+<p>parent-comp works1!{{receivedChildMessage}}</p>

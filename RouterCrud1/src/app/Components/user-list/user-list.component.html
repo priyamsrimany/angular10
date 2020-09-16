@@ -1,0 +1,6 @@
+<p>user-list works!</p>
+
+<a (click)="AddUser();">AddUser</a>
+<ul *ngFor="let user of Users">
+    <li (click)="OnSelect(user)"><span>{{user.Id}}</span>{{user.Name}}</li>
+</ul>

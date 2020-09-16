@@ -1,0 +1,17 @@
+<p>multi-check works!</p>
+<ul >
+    <li *ngFor="let item of finalArray">{{item.name}}{{item.Checked}}</li>
+</ul>
+
+
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()" class="form">
+    <div>
+      <label class="field-label">Hobbies</label>
+      <div class="flex-container">
+        <div *ngFor="let hobby of personForm.controls.hobbies['controls']; let i=index;">
+          <input type="checkbox" [formControl]="hobby">
+          {{finalArray[i].name}}
+        </div>
+      </div>
+    </div>
+  </form>

@@ -1,0 +1,17 @@
+<p>child-comp works!</p>
+<div>
+    <form>
+    <label>Name</label>
+    <input type="text" #name>
+
+<label>address</label>
+    <input type="text" #address>
+    <button (click)="SubmitVal(name.value,address.value)">Submit</button>
+</form>
+</div>
+<div>{{child.length}}</div>
+<ul *ngFor="let item of child">
+    <li>{{item.Id}}</li>
+    <li>{{item.Name}}</li>
+    <li>{{item.Address}}</li>
+</ul>

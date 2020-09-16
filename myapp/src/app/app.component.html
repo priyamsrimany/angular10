@@ -1,0 +1,53 @@
+<div>Priyam</div>
+<div>{{title}}</div>
+<div>
+  <ul>
+    <li *ngFor="let hero of Hero" (click)="onSelect(hero)">
+      {{hero.Name}}
+    </li>
+    <li *ngIf="Hero.length>2">Many heros</li>
+    <div class="form-group">
+      <label for="usr">Name:</label>
+      <input type="text" #titleInput class="form-control">
+      </div>
+      <button type="button" (click) = "showText(titleInput.value)" class="btn btn-primary">Show Button value!</button>
+
+    </ul>
+
+</div>
+
+<label>
+  Name:
+<input type="text" [formControl]="Name">
+</label>
+<label>
+  UserName:
+<input type="text" [formControl]="UserName">
+</label>
+
+<form [formGroup]="LoginForm" (ngSubmit) = "LoginItem()">
+  <label>
+    UserId:
+  <input type="text" formControlName="UserId">
+  </label>
+  <label>
+    Password:
+  <input type="text" formControlName="Password">
+  </label>
+  <label>
+    Capcha
+    <select formControlName="orders" id="orders">
+      <option *ngFor="let orders of Hero; let i = index" [value]="Hero[i].Id">
+        {{Hero[i].Name}}
+      </option>
+    </select>
+  </label>
+  <label>
+    Skill
+    <div *ngFor="let orders of Hero; let i = index" [value]="Hero[i].Id">
+      <input type="checkbox" formControlName="skill"> 
+      {{Hero[i].Name}}
+     </div>
+  </label>
+  <button>Click</button>
+</form>

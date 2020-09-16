@@ -1,0 +1,76 @@
+<p>about works!</p>
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel=title">Create Employee</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-Group">
+            <label>FullName</label>
+            <input id="fullname" formControlName="fullname" type="text" class="form-control" >
+            <label>{{fullnamelength}} character typed</label>
+        <span *ngIf="empForm.get('fullname').errors && (empForm.get('fullname').dirty || empForm.get('fullname').touched) ">
+            <span *ngIf="empForm.get('fullname').errors.maxlength">Full name should be 2 characters</span>
+            <span *ngIf="empForm.get('fullname').errors.required">Full name required</span>
+        </span>
+        </div>
+        <div class="form-Group">
+            <label>Gender</label>
+            <input id="male" formControlName="gender" type="radio" class="form-control" value="male">
+            <label class="custom-control-label" for="male">Male</label>
+            <input id="female" formControlName="gender" type="radio" class="form-control" value="female">
+            <label class="custom-control-label" for="female">Female</label>
+        <span *ngIf="empForm.get('gender').errors && (empForm.get('gender').dirty || empForm.get('gender').touched) ">
+            <span *ngIf="empForm.get('fullname').errors.required">Gender is  required</span>
+        </span>
+        </div>
+        <div class="form-Group">
+            <label>Email</label>
+            <input id="email" formControlName="email" type="text" class="form-control" >
+        <span *ngIf="empForm.get('email').errors && (empForm.get('email').dirty || empForm.get('email').touched) ">
+            <span *ngIf="empForm.get('email').errors.email">email validation failed</span>
+            <span *ngIf="empForm.get('email').errors.required">email required</span>
+        </span>
+        </div>
+        <div formGroupName="skill">
+            <div class="form-Group">
+                <div>
+                <label for="skillname">Skill Item</label>
+                <input id="skillname" formControlName="skillname" type="text" class="form-control" >
+               </div>  
+               <div>                      
+                <label>Experience</label>
+                <input id="experience" formControlName="experience" type="text" class="form-control" >
+                </div> 
+            </div>
+
+            <div class="form-Group">
+                
+                <label>Proficiency</label>
+                <input type="radio" id="proficiency"  value="beginer" formControlName="proficiency">beginer
+                <input type="radio" id="proficiency"  value="Intermediator" formControlName="proficiency">Intermediator
+                <input type="radio" id="proficiency"  value="Expert" formControlName="proficiency">Expert
+            </div>
+
+        </div>
+        <div class="panel-footer">
+        <button class="btn btn-primary" type="submit" [disabled]="!empForm.form.valid">Submit</button>
+        <button class="btn btn-primary" type="button" (click)="OnLoadData()">Load Data</button>
+        <button class="btn btn-primary" type="button" (click)="ClaerData()">Clear Data</button>
+
+        <button class="btn btn-primary" type="button" (click)="addItem()">Add Data</button>
+        </div>
+
+        <div formArrayName="items"
+  *ngFor="let item of empForm.get('items').controls; let i = index;">
+  <div [formGroupName]="i">
+    <input formControlName="name" placeholder="Item name">
+    <input formControlName="price" placeholder="Item price">
+  </div>
+</div>
+    </div>
+</div>
+
+</form> 
+
+

@@ -1,0 +1,9 @@
+<p>home-child works componet to show input form value from parent component! Parent to child component data passing using @Input variable]</p>
+<p>{{ChildInputArr.length}}</p>
+    <ul *ngFor="let p of ChildInputArr">
+        <li><input type="checkbox" value="{{p.firstname}}" name="firstname" ngModel (change)="ChekedItem($event)"> {{p.firstname}}</li>
+        <li><input type="checkbox" value="{{p.lastname}}" name="lastname" ngModel (change)="ChekedItem($event)"> {{p.lastname}}</li>
+        <li><input type="checkbox" value="{{p.email}}" name="email" ngModel (change)="ChekedItem($event)">{{p.email}}</li>
+    </ul>
+
+    <div onclick ="PushOutput()">Click</div>
